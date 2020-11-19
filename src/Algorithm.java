@@ -14,14 +14,11 @@ public class Algorithm implements AM {
         if (x.compareTo(BigInteger.ZERO) < 0) {
             throw new IllegalArgumentException("Negative argument.");
         }
-        // square roots of 0 and 1 are trivial and
-        // y == 0 will cause a divide-by-zero exception
         if (x == BigInteger.ZERO || x == BigInteger.ONE) {
             return x;
         } // end if
         BigInteger two = BigInteger.valueOf(2L);
         BigInteger y;
-        // starting with y = x / 2 avoids magnitude issues with x squared
         for (y = x.divide(two);
              y.compareTo(x.divide(y)) > 0;
              y = ((x.divide(y)).add(y)).divide(two));
@@ -47,7 +44,6 @@ public class Algorithm implements AM {
         }
         BigInteger r1 = a.subtract(sqrt(b2));
         return r1;
-        //display(r1, r2);
     }
 
     public boolean isSquare(BigInteger N)
